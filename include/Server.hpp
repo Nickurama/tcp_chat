@@ -6,18 +6,19 @@ class Server
 {
 private:
 	static const int LISTEN_BACKLOG = 5;
-	std::string m_ip;
 	unsigned short m_port;
 	bool m_isRunning;
 	struct sockaddr_in m_address;
-	void setupAddress(unsigned short port);
+	int m_sockfd;
+
+	struct sockaddr_in setupAddress(unsigned short port);
 	int socket();
-	void bind(int sockfd);
-	void listen(int sockfd);
-	int accept(int sockfd);
+	static void bind(int sockfd, struct sockaddr_in address);
+	void listen();
+	int accept();
 public:
-	Server(const std::string ip, const unsigned short port);
-	std::string getIp();
+	Server(unsigned short port);
+	~Server();
 	unsigned short getPort();
 	bool isRunning();
 	int numConnections();

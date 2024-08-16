@@ -2,15 +2,16 @@
 #include "NetworkError.hpp"
 #include "Server.hpp"
 #include "Client.hpp"
+#include <iostream>
 #include <string>
 
 TEST_CASE("Server should be connecteable")
 {
 	// Arrange
 	std::string serverIP = "127.0.0.1";
-	int serverPort = 70000;
+	unsigned short serverPort = 50000;
 
-	Server server(serverIP, serverPort);
+	Server server(serverPort);
 	Client client;
 
 	// Act
@@ -22,6 +23,7 @@ TEST_CASE("Server should be connecteable")
 	}
 	catch (const NetworkError &e)
 	{
+		std::cout << e.what() << std::endl;
 		threwError = true;
 	}
 
@@ -35,11 +37,10 @@ TEST_CASE("Server should be connecteable")
 TEST_CASE("Should throw when unable to start server")
 {
 	// Arrange
-	std::string serverIP = "127.0.0.1";
-	int serverPort = 70000;
+	unsigned short serverPort = 50000;
 
-	Server server0(serverIP, serverPort);
-	Server server1(serverIP, serverPort);
+	Server server0(serverPort);
+	Server server1(serverPort);
 
 	server0.start();
 
