@@ -4,12 +4,17 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <thread>
 #include <unistd.h>
 
-Client::Client()
+Client::Client() : Client(DEFAULT_CONN_ATTEMPTS, DEFAULT_ATTEMPT_TIMEOUT) {}
+
+Client::Client(int connAttempts, int attemptTimeoutMs)
 {
 	this->m_sockfd = socket();
 	this->m_isConnected = false;
+	this->m_connAttempts = connAttempts;
+	this->m_attemptTimeoutMs = attemptTimeoutMs;
 }
 
 Client::~Client()
@@ -54,8 +59,17 @@ struct in_addr Client::stringToAddr(const std::string addrStr)
 void Client::connectSocket(const struct sockaddr_in serverAddr)
 {
 	int status = ::connect(m_sockfd, (struct sockaddr *)&serverAddr, sizeof(serverAddr));
+
+	for (int i = 1; i < m_connAttempts && status < 0; i++)
+	{
+		std::cout << "Connection failed! retrying..." << std::endl;
+		std::this_thread::sleep_for(std::chrono::milliseconds(m_attemptTimeoutMs));
+		status = ::connect(m_sockfd, (struct sockaddr *)&serverAddr, sizeof(serverAddr));
+	}
+
 	if (status < 0)
 		throw NetworkError("Could not connect to server");
+
 	std::cout << "Client: connected to server" << std::endl;
 }
 

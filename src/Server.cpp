@@ -88,11 +88,11 @@ void Server::listen()
 int Server::accept()
 {
 	socklen_t addrlen = sizeof(m_address);
-	std::future<int> futureClientSockfd = std::async(std::launch::async, ::accept, m_sockfd, (struct sockaddr *)&m_address, &addrlen);
-	onServerListening(); // call subscribers of server started listening
-	int clientSockfd = futureClientSockfd.get();
+	// std::future<int> futureClientSockfd = std::async(std::launch::async, ::accept, m_sockfd, (struct sockaddr *)&m_address, &addrlen);
+	// onServerListening(); // call subscribers of server started listening
+	// int clientSockfd = futureClientSockfd.get();
 
-	// int clientSockfd = ::accept(m_sockfd, (struct sockaddr *)&m_address, &addrlen);
+	int clientSockfd = ::accept(m_sockfd, (struct sockaddr *)&m_address, &addrlen);
 	if (clientSockfd < 0)
 		throw NetworkError("Error when accept new connection");
 	std::cout << "Server: Socket accepted new connection!" << std::endl;
