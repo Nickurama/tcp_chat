@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <netinet/in.h>
+#include <thread>
 
 class Server
 {
@@ -10,12 +11,14 @@ private:
 	bool m_isRunning;
 	struct sockaddr_in m_address;
 	int m_sockfd;
+	std::thread m_thread;
 
 	struct sockaddr_in setupAddress(unsigned short port);
 	int socket();
 	static void bind(int sockfd, struct sockaddr_in address);
 	void listen();
 	int accept();
+	void runServerLoop();
 public:
 	Server(unsigned short port);
 	~Server();

@@ -18,6 +18,7 @@ Server::Server(unsigned short port)
 
 Server::~Server()
 {
+	// ! join the thread by running stop
 	close(m_sockfd);
 }
 
@@ -57,6 +58,12 @@ void Server::start()
 	// event.events = EPOLLIN;
 	// int status = epoll_ctl(epollfd, EPOLL_CTL_ADD, m_sockfd, &event);
 
+	m_isRunning = true;
+	m_thread = std::thread(&Server::runServerLoop, this);
+}
+
+void Server::runServerLoop()
+{
 	int clientSockfd = accept();
 }
 
