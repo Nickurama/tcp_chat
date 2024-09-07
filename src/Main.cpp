@@ -1,6 +1,7 @@
 #include "Server.hpp"
 #include "Client.hpp"
 #include <iostream>
+#include <unistd.h>
 #include <vector>
 
 std::string to_lower(const std::string str)
@@ -49,6 +50,11 @@ void launch_server(std::string port)
 {
 	Server server(get_port_num(port));
 	server.start();
+	while (true)
+	{
+		std::cout << "hello from main" << std::endl;
+		sleep(1);
+	}
 }
 
 void process_args(std::vector<std::string> &args)
@@ -86,5 +92,6 @@ int main(int argc, char **argv)
 	char_arr_to_string(argv + 1, str_args, argc - 1);
 
 	process_args(str_args);
+
 	return 0;
 }

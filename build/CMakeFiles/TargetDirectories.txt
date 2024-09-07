@@ -1,0 +1,4 @@
+/home/luna/Documents/code/tcp_chat/build/CMakeFiles/tcp_chat.dir
+/home/luna/Documents/code/tcp_chat/build/CMakeFiles/tests.dir
+/home/luna/Documents/code/tcp_chat/build/CMakeFiles/edit_cache.dir
+/home/luna/Documents/code/tcp_chat/build/CMakeFiles/rebuild_cache.dir

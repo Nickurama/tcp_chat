@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/tests.dir/src/Client.cpp.o CMakeFiles/tests.dir/src/NetworkError.cpp.o CMakeFiles/tests.dir/src/Server.cpp.o CMakeFiles/tests.dir/src/UniqueSocket.cpp.o CMakeFiles/tests.dir/test/ClientTests.cpp.o CMakeFiles/tests.dir/test/ServerTests.cpp.o CMakeFiles/tests.dir/test/TestMain.cpp.o -o tests
