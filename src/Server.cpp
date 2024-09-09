@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <sys/epoll.h>
 #include <tuple>
+#include <fcntl.h>
 #include "Server.hpp"
 #include "NetworkError.hpp"
 
@@ -42,8 +43,10 @@ void Server::closePipeStopEvent()
 
 	if (statusRead < 0)
 		std::cout << "Could not close read end of stop event pipe." << std::endl;
+	std::cout << "Closed read end of stop event pipe." << std::endl;
 	if (statusWrite < 0)
 		std::cout << "Could not close read end of stop event pipe." << std::endl;
+	std::cout << "Closed read end of stop event pipe." << std::endl;
 }
 
 void Server::makePipe(int *pipe)
@@ -109,6 +112,8 @@ void Server::stop() noexcept
 	if (!isRunning())
 		return;
 
+	std::cout << "Stopping server..." << std::endl;
+
 	setAllowNewConnections(false);
 	disconnectAll();
 	triggerPipeStopEvent();
@@ -121,7 +126,9 @@ void Server::stop() noexcept
 void Server::triggerPipeStopEvent()
 {
 	char buf = 1;
-	write(m_pipeStopEvent[1], &buf, sizeof(char));
+	int status = write(m_pipeStopEvent[1], &buf, sizeof(char));
+	if (status < 0)
+		std::cout << "failed to write to pipe (stop event)" << std::endl;
 }
 
 void Server::closeEpollFd()
@@ -200,8 +207,10 @@ void Server::start()
 
 	// start socket
 	m_sockfd = makeSocket();
+
 	bind(m_sockfd, m_address);
 	listen(m_sockfd);
+	setNonblocking(m_sockfd);
 
 	std::cout << "Server: Starting server on port " << m_port << std::endl;
 
@@ -217,6 +226,17 @@ void Server::start()
 	m_thread = std::thread(&Server::runServerLoop, this);
 }
 
+void Server::setNonblocking(int fd)
+{
+	int flags = fcntl(fd, F_GETFL, 0);
+	if (flags < 0)
+		throw NetworkError("could not get flags from file descriptor.");
+	
+	int status = fcntl(fd, F_SETFL, flags | O_NONBLOCK);
+	if (status < 0)
+		throw NetworkError("could not set flags of file descriptor.");
+}
+
 void Server::epollSetupPipeStopEvent()
 {
 	m_epollPipeStopEvent->events = EPOLLIN;
@@ -225,7 +245,7 @@ void Server::epollSetupPipeStopEvent()
 
 void Server::epollAddPipeStop()
 {
-	int status = epoll_ctl(m_epollFd, EPOLL_CTL_ADD, m_sockfd, m_epollServerEvent.get());
+	int status = epoll_ctl(m_epollFd, EPOLL_CTL_ADD, m_pipeStopEvent[0], m_epollPipeStopEvent.get());
 	if (status < 0)
 		throw NetworkError("Could not add pipe file descriptor to epoll instance.");
 }
@@ -265,25 +285,45 @@ void Server::runServerLoop()
 			continue;
 		}
 
-		for (int i = 0; i < eventsReady; i++)
-		{
-			int currFd = m_epollEventQueue[i].data.fd;
 
-			if (currFd == m_pipeStopEvent[0]) // stop signal
-			{
-				shouldStop = true;
-				break;
-			}
-			else if (currFd == m_sockfd && allowNewConnections()) // new connection
-			{
-				acceptConnection();
-				continue;
-			}
-
-			// received message
-			receiveMessage(currFd);
-		}
+		std::cout << "epoll: events detected." << std::endl;
+		shouldStop = processEvents(eventsReady);
 	}
+}
+
+// returns if pipe stop event was triggered.
+bool Server::processEvents(int eventsReady)
+{
+	bool shouldStop = false;
+	for (int i = 0; i < eventsReady; i++)
+	{
+		int currFd = m_epollEventQueue[i].data.fd;
+
+		if (currFd == m_pipeStopEvent[0]) // stop signal
+		{
+			std::cout << "epoll: pipe stop event detected!" << std::endl;
+			consumePipeStopEvent();
+			shouldStop = true;
+			break;
+		}
+		else if (currFd == m_sockfd && allowNewConnections()) // new connection
+		{
+			std::cout << "epoll: socket new connection event detected!" << std::endl;
+			acceptConnection();
+			continue;
+		}
+
+		// received message
+		std::cout << "epoll: socket data received event detected!" << std::endl;
+		receiveMessage(currFd);
+	}
+	return shouldStop;
+}
+
+void Server::consumePipeStopEvent()
+{
+	char tmp;
+	read(m_pipeStopEvent[0], &tmp, 1);
 }
 
 // THREADING: CRITICAL SECTION
@@ -292,6 +332,12 @@ void Server::acceptConnection()
 	// client addr
 	std::unique_ptr<struct sockaddr_in> clientAddr(new struct sockaddr_in);
 	int clientFd = accept(m_sockfd, *(clientAddr.get()));
+	if (clientFd < 0)
+	{
+		std::cout << "Error on accepting connection." << std::endl;
+		return;
+	}
+	setNonblocking(clientFd);
 
 	// client event
 	std::unique_ptr<struct epoll_event> clientEvent(new struct epoll_event);

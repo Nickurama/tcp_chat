@@ -4,6 +4,8 @@
 #include <unistd.h>
 #include <vector>
 
+using namespace Networking;
+
 std::string to_lower(const std::string str)
 {
 	std::string result;
@@ -44,16 +46,21 @@ void launch_client(std::string ip, std::string port)
 {
 	Client client;
 	client.connect(ip, get_port_num(port));
+	while (true)
+	{
+		sleep(1);
+	}
 }
 
 void launch_server(std::string port)
 {
-	Server server(get_port_num(port));
-	server.start();
+	Server server(get_port_num(port), 1);
 	while (true)
 	{
-		std::cout << "hello from main" << std::endl;
-		sleep(1);
+		std::cout << "-----------------------------------------------------" << std::endl;
+		server.start();
+		sleep(5);
+		server.stop();
 	}
 }
 

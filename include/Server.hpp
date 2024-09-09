@@ -54,6 +54,7 @@ namespace Networking
 		static int makeSocket();
 		static int makeEpoll();
 		static void makePipe(int *pipe);
+		static void setNonblocking(int fd);
 		void closePipeStopEvent();
 		void closeEpollFd();
 		void closeServerFd();
@@ -72,5 +73,7 @@ namespace Networking
 		void runServerLoop();
 		void acceptConnection();
 		void receiveMessage(int fd);
+		void consumePipeStopEvent();
+		bool processEvents(int eventsReady);
 	};
 }

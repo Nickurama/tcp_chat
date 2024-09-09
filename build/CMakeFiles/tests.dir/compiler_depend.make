@@ -37,6 +37,7 @@ CMakeFiles/tests.dir/src/Client.cpp.o: /home/luna/Documents/code/tcp_chat/src/Cl
   /usr/include/bits/local_lim.h \
   /usr/include/bits/locale.h \
   /usr/include/bits/long-double.h \
+  /usr/include/bits/poll.h \
   /usr/include/bits/posix1_lim.h \
   /usr/include/bits/posix2_lim.h \
   /usr/include/bits/posix_opt.h \
@@ -169,6 +170,7 @@ CMakeFiles/tests.dir/src/Client.cpp.o: /home/luna/Documents/code/tcp_chat/src/Cl
   /usr/include/c++/14.2.1/bits/string_view.tcc \
   /usr/include/c++/14.2.1/bits/stringfwd.h \
   /usr/include/c++/14.2.1/bits/this_thread_sleep.h \
+  /usr/include/c++/14.2.1/bits/unique_lock.h \
   /usr/include/c++/14.2.1/bits/unique_ptr.h \
   /usr/include/c++/14.2.1/bits/uses_allocator.h \
   /usr/include/c++/14.2.1/bits/uses_allocator_args.h \
@@ -201,6 +203,7 @@ CMakeFiles/tests.dir/src/Client.cpp.o: /home/luna/Documents/code/tcp_chat/src/Cl
   /usr/include/c++/14.2.1/iostream \
   /usr/include/c++/14.2.1/istream \
   /usr/include/c++/14.2.1/limits \
+  /usr/include/c++/14.2.1/mutex \
   /usr/include/c++/14.2.1/new \
   /usr/include/c++/14.2.1/numbers \
   /usr/include/c++/14.2.1/ostream \
@@ -243,6 +246,7 @@ CMakeFiles/tests.dir/src/Client.cpp.o: /home/luna/Documents/code/tcp_chat/src/Cl
   /usr/include/linux/stddef.h \
   /usr/include/locale.h \
   /usr/include/netinet/in.h \
+  /usr/include/poll.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/semaphore.h \
@@ -251,6 +255,7 @@ CMakeFiles/tests.dir/src/Client.cpp.o: /home/luna/Documents/code/tcp_chat/src/Cl
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
   /usr/include/sys/cdefs.h \
+  /usr/include/sys/poll.h \
   /usr/include/sys/select.h \
   /usr/include/sys/single_threaded.h \
   /usr/include/sys/socket.h \
@@ -427,7 +432,6 @@ CMakeFiles/tests.dir/src/NetworkError.cpp.o: /home/luna/Documents/code/tcp_chat/
 CMakeFiles/tests.dir/src/Server.cpp.o: /home/luna/Documents/code/tcp_chat/src/Server.cpp \
   /home/luna/Documents/code/tcp_chat/include/NetworkError.hpp \
   /home/luna/Documents/code/tcp_chat/include/Server.hpp \
-  /home/luna/Documents/code/tcp_chat/include/UniqueSocket.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
   /usr/include/asm-generic/errno-base.h \
@@ -456,6 +460,8 @@ CMakeFiles/tests.dir/src/Server.cpp.o: /home/luna/Documents/code/tcp_chat/src/Se
   /usr/include/bits/environments.h \
   /usr/include/bits/epoll.h \
   /usr/include/bits/errno.h \
+  /usr/include/bits/fcntl-linux.h \
+  /usr/include/bits/fcntl.h \
   /usr/include/bits/floatn-common.h \
   /usr/include/bits/floatn.h \
   /usr/include/bits/getopt_core.h \
@@ -480,6 +486,7 @@ CMakeFiles/tests.dir/src/Server.cpp.o: /home/luna/Documents/code/tcp_chat/src/Se
   /usr/include/bits/sockaddr.h \
   /usr/include/bits/socket.h \
   /usr/include/bits/socket_type.h \
+  /usr/include/bits/stat.h \
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
@@ -487,6 +494,7 @@ CMakeFiles/tests.dir/src/Server.cpp.o: /home/luna/Documents/code/tcp_chat/src/Se
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/struct_stat.h \
   /usr/include/bits/syscall.h \
   /usr/include/bits/thread-shared-types.h \
   /usr/include/bits/time.h \
@@ -550,12 +558,16 @@ CMakeFiles/tests.dir/src/Server.cpp.o: /home/luna/Documents/code/tcp_chat/src/Se
   /usr/include/c++/14.2.1/bits/cpp_type_traits.h \
   /usr/include/c++/14.2.1/bits/cxxabi_forced.h \
   /usr/include/c++/14.2.1/bits/cxxabi_init_exception.h \
+  /usr/include/c++/14.2.1/bits/enable_special_members.h \
+  /usr/include/c++/14.2.1/bits/erase_if.h \
   /usr/include/c++/14.2.1/bits/exception.h \
   /usr/include/c++/14.2.1/bits/exception_defines.h \
   /usr/include/c++/14.2.1/bits/exception_ptr.h \
   /usr/include/c++/14.2.1/bits/functexcept.h \
   /usr/include/c++/14.2.1/bits/functional_hash.h \
   /usr/include/c++/14.2.1/bits/hash_bytes.h \
+  /usr/include/c++/14.2.1/bits/hashtable.h \
+  /usr/include/c++/14.2.1/bits/hashtable_policy.h \
   /usr/include/c++/14.2.1/bits/invoke.h \
   /usr/include/c++/14.2.1/bits/ios_base.h \
   /usr/include/c++/14.2.1/bits/istream.tcc \
@@ -571,6 +583,7 @@ CMakeFiles/tests.dir/src/Server.cpp.o: /home/luna/Documents/code/tcp_chat/src/Se
   /usr/include/c++/14.2.1/bits/move.h \
   /usr/include/c++/14.2.1/bits/nested_exception.h \
   /usr/include/c++/14.2.1/bits/new_allocator.h \
+  /usr/include/c++/14.2.1/bits/node_handle.h \
   /usr/include/c++/14.2.1/bits/ostream.tcc \
   /usr/include/c++/14.2.1/bits/ostream_insert.h \
   /usr/include/c++/14.2.1/bits/parse_numbers.h \
@@ -599,7 +612,9 @@ CMakeFiles/tests.dir/src/Server.cpp.o: /home/luna/Documents/code/tcp_chat/src/Se
   /usr/include/c++/14.2.1/bits/string_view.tcc \
   /usr/include/c++/14.2.1/bits/stringfwd.h \
   /usr/include/c++/14.2.1/bits/this_thread_sleep.h \
+  /usr/include/c++/14.2.1/bits/unique_lock.h \
   /usr/include/c++/14.2.1/bits/unique_ptr.h \
+  /usr/include/c++/14.2.1/bits/unordered_map.h \
   /usr/include/c++/14.2.1/bits/uses_allocator.h \
   /usr/include/c++/14.2.1/bits/uses_allocator_args.h \
   /usr/include/c++/14.2.1/bits/utility.h \
@@ -620,6 +635,7 @@ CMakeFiles/tests.dir/src/Server.cpp.o: /home/luna/Documents/code/tcp_chat/src/Se
   /usr/include/c++/14.2.1/debug/assertions.h \
   /usr/include/c++/14.2.1/debug/debug.h \
   /usr/include/c++/14.2.1/exception \
+  /usr/include/c++/14.2.1/ext/aligned_buffer.h \
   /usr/include/c++/14.2.1/ext/alloc_traits.h \
   /usr/include/c++/14.2.1/ext/atomicity.h \
   /usr/include/c++/14.2.1/ext/numeric_traits.h \
@@ -631,6 +647,7 @@ CMakeFiles/tests.dir/src/Server.cpp.o: /home/luna/Documents/code/tcp_chat/src/Se
   /usr/include/c++/14.2.1/iostream \
   /usr/include/c++/14.2.1/istream \
   /usr/include/c++/14.2.1/limits \
+  /usr/include/c++/14.2.1/mutex \
   /usr/include/c++/14.2.1/new \
   /usr/include/c++/14.2.1/numbers \
   /usr/include/c++/14.2.1/ostream \
@@ -647,6 +664,7 @@ CMakeFiles/tests.dir/src/Server.cpp.o: /home/luna/Documents/code/tcp_chat/src/Se
   /usr/include/c++/14.2.1/tuple \
   /usr/include/c++/14.2.1/type_traits \
   /usr/include/c++/14.2.1/typeinfo \
+  /usr/include/c++/14.2.1/unordered_map \
   /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h \
   /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h \
   /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
@@ -661,6 +679,7 @@ CMakeFiles/tests.dir/src/Server.cpp.o: /home/luna/Documents/code/tcp_chat/src/Se
   /usr/include/ctype.h \
   /usr/include/endian.h \
   /usr/include/errno.h \
+  /usr/include/fcntl.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/gnu/stubs-64.h \
@@ -668,6 +687,7 @@ CMakeFiles/tests.dir/src/Server.cpp.o: /home/luna/Documents/code/tcp_chat/src/Se
   /usr/include/limits.h \
   /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/falloc.h \
   /usr/include/linux/ioctl.h \
   /usr/include/linux/limits.h \
   /usr/include/linux/posix_types.h \
@@ -914,7 +934,6 @@ CMakeFiles/tests.dir/test/ServerTests.cpp.o: /home/luna/Documents/code/tcp_chat/
   /home/luna/Documents/code/tcp_chat/include/Client.hpp \
   /home/luna/Documents/code/tcp_chat/include/NetworkError.hpp \
   /home/luna/Documents/code/tcp_chat/include/Server.hpp \
-  /home/luna/Documents/code/tcp_chat/include/UniqueSocket.hpp \
   /home/luna/Documents/code/tcp_chat/include/doctest.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -1031,12 +1050,16 @@ CMakeFiles/tests.dir/test/ServerTests.cpp.o: /home/luna/Documents/code/tcp_chat/
   /usr/include/c++/14.2.1/bits/cpp_type_traits.h \
   /usr/include/c++/14.2.1/bits/cxxabi_forced.h \
   /usr/include/c++/14.2.1/bits/cxxabi_init_exception.h \
+  /usr/include/c++/14.2.1/bits/enable_special_members.h \
+  /usr/include/c++/14.2.1/bits/erase_if.h \
   /usr/include/c++/14.2.1/bits/exception.h \
   /usr/include/c++/14.2.1/bits/exception_defines.h \
   /usr/include/c++/14.2.1/bits/exception_ptr.h \
   /usr/include/c++/14.2.1/bits/functexcept.h \
   /usr/include/c++/14.2.1/bits/functional_hash.h \
   /usr/include/c++/14.2.1/bits/hash_bytes.h \
+  /usr/include/c++/14.2.1/bits/hashtable.h \
+  /usr/include/c++/14.2.1/bits/hashtable_policy.h \
   /usr/include/c++/14.2.1/bits/invoke.h \
   /usr/include/c++/14.2.1/bits/ios_base.h \
   /usr/include/c++/14.2.1/bits/istream.tcc \
@@ -1052,6 +1075,7 @@ CMakeFiles/tests.dir/test/ServerTests.cpp.o: /home/luna/Documents/code/tcp_chat/
   /usr/include/c++/14.2.1/bits/move.h \
   /usr/include/c++/14.2.1/bits/nested_exception.h \
   /usr/include/c++/14.2.1/bits/new_allocator.h \
+  /usr/include/c++/14.2.1/bits/node_handle.h \
   /usr/include/c++/14.2.1/bits/ostream.tcc \
   /usr/include/c++/14.2.1/bits/ostream_insert.h \
   /usr/include/c++/14.2.1/bits/parse_numbers.h \
@@ -1080,7 +1104,9 @@ CMakeFiles/tests.dir/test/ServerTests.cpp.o: /home/luna/Documents/code/tcp_chat/
   /usr/include/c++/14.2.1/bits/string_view.tcc \
   /usr/include/c++/14.2.1/bits/stringfwd.h \
   /usr/include/c++/14.2.1/bits/this_thread_sleep.h \
+  /usr/include/c++/14.2.1/bits/unique_lock.h \
   /usr/include/c++/14.2.1/bits/unique_ptr.h \
+  /usr/include/c++/14.2.1/bits/unordered_map.h \
   /usr/include/c++/14.2.1/bits/uses_allocator.h \
   /usr/include/c++/14.2.1/bits/uses_allocator_args.h \
   /usr/include/c++/14.2.1/bits/utility.h \
@@ -1101,6 +1127,7 @@ CMakeFiles/tests.dir/test/ServerTests.cpp.o: /home/luna/Documents/code/tcp_chat/
   /usr/include/c++/14.2.1/debug/assertions.h \
   /usr/include/c++/14.2.1/debug/debug.h \
   /usr/include/c++/14.2.1/exception \
+  /usr/include/c++/14.2.1/ext/aligned_buffer.h \
   /usr/include/c++/14.2.1/ext/alloc_traits.h \
   /usr/include/c++/14.2.1/ext/atomicity.h \
   /usr/include/c++/14.2.1/ext/numeric_traits.h \
@@ -1112,6 +1139,7 @@ CMakeFiles/tests.dir/test/ServerTests.cpp.o: /home/luna/Documents/code/tcp_chat/
   /usr/include/c++/14.2.1/iostream \
   /usr/include/c++/14.2.1/istream \
   /usr/include/c++/14.2.1/limits \
+  /usr/include/c++/14.2.1/mutex \
   /usr/include/c++/14.2.1/new \
   /usr/include/c++/14.2.1/numbers \
   /usr/include/c++/14.2.1/ostream \
@@ -1128,6 +1156,7 @@ CMakeFiles/tests.dir/test/ServerTests.cpp.o: /home/luna/Documents/code/tcp_chat/
   /usr/include/c++/14.2.1/tuple \
   /usr/include/c++/14.2.1/type_traits \
   /usr/include/c++/14.2.1/typeinfo \
+  /usr/include/c++/14.2.1/unordered_map \
   /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h \
   /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h \
   /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
@@ -1560,8 +1589,6 @@ CMakeFiles/tests.dir/test/TestMain.cpp.o: /home/luna/Documents/code/tcp_chat/tes
 
 /usr/include/c++/14.2.1/bits/unordered_set.h:
 
-/usr/include/c++/14.2.1/bits/unique_lock.h:
-
 /usr/include/c++/14.2.1/bits/stl_vector.h:
 
 /usr/include/c++/14.2.1/bits/stl_tempbuf.h:
@@ -1588,13 +1615,9 @@ CMakeFiles/tests.dir/test/TestMain.cpp.o: /home/luna/Documents/code/tcp_chat/tes
 
 /usr/include/c++/14.2.1/bits/locale_conv.h:
 
-/usr/include/c++/14.2.1/bits/hashtable.h:
-
 /usr/include/c++/14.2.1/tr1/hypergeometric.tcc:
 
 /usr/include/c++/14.2.1/bits/fstream.tcc:
-
-/usr/include/c++/14.2.1/bits/erase_if.h:
 
 /usr/include/c++/14.2.1/bits/codecvt.h:
 
@@ -1654,9 +1677,27 @@ CMakeFiles/tests.dir/test/TestMain.cpp.o: /home/luna/Documents/code/tcp_chat/tes
 
 /usr/include/linux/ioctl.h:
 
+/usr/include/fcntl.h:
+
+/usr/include/c++/14.2.1/unordered_map:
+
+/usr/include/c++/14.2.1/bits/unordered_map.h:
+
+/usr/include/c++/14.2.1/bits/hashtable.h:
+
+/usr/include/c++/14.2.1/bits/erase_if.h:
+
+/usr/include/bits/struct_stat.h:
+
+/usr/include/bits/stat.h:
+
 /usr/include/bits/ioctls.h:
 
 /usr/include/bits/ioctl-types.h:
+
+/usr/include/bits/fcntl.h:
+
+/usr/include/bits/fcntl-linux.h:
 
 /usr/include/bits/epoll.h:
 
@@ -1690,11 +1731,13 @@ CMakeFiles/tests.dir/test/TestMain.cpp.o: /home/luna/Documents/code/tcp_chat/tes
 
 /usr/include/time.h:
 
+/usr/include/bits/mathcalls-helper-functions.h:
+
+/usr/include/sys/socket.h:
+
 /usr/include/c++/14.2.1/cstdint:
 
 /usr/include/c++/14.2.1/bits/hash_bytes.h:
-
-/usr/include/c++/14.2.1/bits/exception_defines.h:
 
 /usr/include/c++/14.2.1/bits/cxxabi_init_exception.h:
 
@@ -1703,6 +1746,14 @@ CMakeFiles/tests.dir/test/TestMain.cpp.o: /home/luna/Documents/code/tcp_chat/tes
 /usr/include/c++/14.2.1/bits/char_traits.h:
 
 /usr/include/bits/uintn-identity.h:
+
+/usr/include/c++/14.2.1/bits/stl_relops.h:
+
+/usr/include/bits/signum-arch.h:
+
+/usr/include/sys/syscall.h:
+
+/usr/include/c++/14.2.1/bits/basic_string.tcc:
 
 /usr/include/c++/14.2.1/bits/atomic_wait.h:
 
@@ -1713,6 +1764,10 @@ CMakeFiles/tests.dir/test/TestMain.cpp.o: /home/luna/Documents/code/tcp_chat/tes
 /usr/include/c++/14.2.1/bits/memoryfwd.h:
 
 /usr/include/c++/14.2.1/bits/requires_hosted.h:
+
+/usr/include/syscall.h:
+
+/usr/include/c++/14.2.1/bits/concept_check.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stddef.h:
 
@@ -1781,6 +1836,8 @@ CMakeFiles/tests.dir/test/TestMain.cpp.o: /home/luna/Documents/code/tcp_chat/tes
 /usr/include/bits/types/clock_t.h:
 
 /usr/include/c++/14.2.1/bits/atomic_lockfree_defines.h:
+
+/usr/include/bits/poll.h:
 
 /usr/include/c++/14.2.1/pstl/glue_algorithm_defs.h:
 
@@ -1894,13 +1951,15 @@ CMakeFiles/tests.dir/test/TestMain.cpp.o: /home/luna/Documents/code/tcp_chat/tes
 
 /usr/include/c++/14.2.1/bits/this_thread_sleep.h:
 
+/usr/include/sys/time.h:
+
+/usr/include/c++/14.2.1/limits:
+
+/usr/include/c++/14.2.1/backward/binders.h:
+
 /usr/include/asm-generic/errno-base.h:
 
 /usr/include/asm-generic/errno.h:
-
-/usr/include/c++/14.2.1/bits/concept_check.h:
-
-/usr/include/syscall.h:
 
 /usr/include/c++/14.2.1/bits/basic_ios.tcc:
 
@@ -1958,6 +2017,8 @@ CMakeFiles/tests.dir/test/TestMain.cpp.o: /home/luna/Documents/code/tcp_chat/tes
 
 /usr/include/bits/libc-header-start.h:
 
+/usr/include/c++/14.2.1/bits/exception_defines.h:
+
 /usr/include/bits/locale.h:
 
 /usr/include/bits/syscall.h:
@@ -1969,8 +2030,6 @@ CMakeFiles/tests.dir/test/TestMain.cpp.o: /home/luna/Documents/code/tcp_chat/tes
 /usr/include/c++/14.2.1/bits/localefwd.h:
 
 /usr/include/gnu/stubs.h:
-
-/usr/include/c++/14.2.1/bits/ios_base.h:
 
 /usr/include/bits/types/cookie_io_functions_t.h:
 
@@ -2046,11 +2105,15 @@ CMakeFiles/tests.dir/test/TestMain.cpp.o: /home/luna/Documents/code/tcp_chat/tes
 
 /home/luna/Documents/code/tcp_chat/test/TestMain.cpp:
 
+/usr/include/linux/falloc.h:
+
 /usr/include/bits/unistd_ext.h:
 
 /usr/include/c++/14.2.1/bits/uses_allocator.h:
 
 /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/ctype_inline.h:
+
+/usr/include/c++/14.2.1/bits/ios_base.h:
 
 /usr/include/c++/14.2.1/bits/istream.tcc:
 
@@ -2098,14 +2161,6 @@ CMakeFiles/tests.dir/test/TestMain.cpp.o: /home/luna/Documents/code/tcp_chat/tes
 
 /usr/include/c++/14.2.1/bits/ranges_cmp.h:
 
-/usr/include/c++/14.2.1/bits/stl_relops.h:
-
-/usr/include/bits/signum-arch.h:
-
-/usr/include/c++/14.2.1/bits/basic_string.tcc:
-
-/usr/include/sys/syscall.h:
-
 /usr/include/c++/14.2.1/bits/ranges_util.h:
 
 /usr/include/c++/14.2.1/bits/refwrap.h:
@@ -2132,15 +2187,17 @@ CMakeFiles/tests.dir/test/TestMain.cpp.o: /home/luna/Documents/code/tcp_chat/tes
 
 /usr/include/c++/14.2.1/bits/stringfwd.h:
 
-/usr/include/c++/14.2.1/mutex:
-
 /usr/include/bits/types/sig_atomic_t.h:
 
 /usr/include/bits/types/__fpos_t.h:
 
 /usr/include/asm/unistd_64.h:
 
+/usr/include/c++/14.2.1/mutex:
+
 /usr/include/c++/14.2.1/stop_token:
+
+/usr/include/c++/14.2.1/bits/unique_lock.h:
 
 /usr/include/c++/14.2.1/bits/unique_ptr.h:
 
@@ -2216,6 +2273,8 @@ CMakeFiles/tests.dir/test/TestMain.cpp.o: /home/luna/Documents/code/tcp_chat/tes
 
 /usr/include/features-time64.h:
 
+/usr/include/poll.h:
+
 /usr/include/c++/14.2.1/pstl/pstl_config.h:
 
 /usr/include/bits/in.h:
@@ -2282,14 +2341,6 @@ CMakeFiles/tests.dir/test/TestMain.cpp.o: /home/luna/Documents/code/tcp_chat/tes
 
 /usr/include/sys/cdefs.h:
 
-/usr/include/bits/mathcalls-helper-functions.h:
-
-/usr/include/sys/socket.h:
+/usr/include/sys/poll.h:
 
 /usr/include/sys/select.h:
-
-/usr/include/c++/14.2.1/limits:
-
-/usr/include/c++/14.2.1/backward/binders.h:
-
-/usr/include/sys/time.h:
